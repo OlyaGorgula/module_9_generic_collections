@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.Objects;
 
 public class MyArrayList <E>{
     private E[] myArrayList;
@@ -26,16 +26,18 @@ public class MyArrayList <E>{
         return newArrayList;
     }
 
-    //видаляє елемент із вказаним індексом
-    public E remove(int index){
-        if (index >= size ){
-            return null;
-        }
-        E removeElement = myArrayList[index];
+    public void removeElement(int index){
         for (int i=index; i<size; i++){
             myArrayList[i] = myArrayList[i+1];
         }
         size--;
+    }
+
+    //видаляє елемент із вказаним індексом
+    public E remove(int index){
+        Objects.checkIndex(index, size);
+        E removeElement = myArrayList[index];
+        removeElement(index);
         return removeElement;
     }
 
@@ -55,10 +57,8 @@ public class MyArrayList <E>{
 
     //повертає елемент за індексом
     public E get(int index){
-        if (index < size ){
-            return myArrayList[index];
-        }
-        return null;
+        Objects.checkIndex(index, size);
+        return myArrayList[index];
     }
 
     @Override
@@ -83,7 +83,7 @@ public class MyArrayList <E>{
         System.out.println("remove [0] = "+myArrayList.remove(0) +" "+ myArrayList);
         System.out.println("remove [1] = "+myArrayList.remove(0) +" "+ myArrayList);
         System.out.println("remove [2] = "+myArrayList.remove(0) +" "+ myArrayList);
-        System.out.println("remove [3] = "+myArrayList.remove(0) +" "+ myArrayList);
+        //System.out.println("remove [3] = "+myArrayList.remove(0) +" "+ myArrayList);
         myArrayList.add(2);
         myArrayList.add(4);
         myArrayList.add(6);
