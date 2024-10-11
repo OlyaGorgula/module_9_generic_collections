@@ -6,7 +6,9 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        Queue<Integer> listq = new ArrayDeque<>();
+        Deque<Integer> listq = new ArrayDeque<>();
+        listq.remove();
+        //Queue<Integer> listq = new ArrayDeque<>();
         listq.add(1);
         listq.add(3);
         listq.add(5);

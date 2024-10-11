@@ -1,9 +1,7 @@
-import java.util.Arrays;
-
 import static java.lang.Integer.min;
 
 public class MyQueue<E> {
-    private Object[] arrayQueueFIFO; // arrayQueueFIFO
+    private Object[] arrayQueueFIFO;
     private int head;
     private int tail;
     private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
@@ -16,6 +14,8 @@ public class MyQueue<E> {
 
     //додає елемент в кінець
     public boolean add(E value){
+        if (value == null)
+            throw new NullPointerException("Sorry, element cannot be null");
         if (arrayQueueFIFO.length == tail){
             arrayQueueFIFO = expandList();
         }
