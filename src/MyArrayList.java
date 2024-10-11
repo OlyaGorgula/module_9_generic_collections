@@ -1,32 +1,40 @@
 import java.util.Objects;
 
+import static java.lang.Integer.min;
+
 public class MyArrayList <E>{
-    private E[] myArrayList;
+    private Object[] myArrayList;
     private int size;
+    private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
 
     public MyArrayList(){
         size = 0;
-        myArrayList = (E[]) new Object[10];
+        myArrayList = new Object[10];
     }
 
     //додає елемент в кінець
-    public void add(E value){
+    public boolean add(E value){
         if (myArrayList.length == size){
             myArrayList = expandList();
         }
         myArrayList[size] = value;
         size ++;
+        return true;
     }
 
-    private E[] expandList(){
-        E[] newArrayList = (E[]) new Object[myArrayList.length+5];
+    private Object[] expandList(){
+        if(myArrayList.length == MAX_ARRAY_SIZE){
+            throw new IllegalStateException("Sorry, array too big");
+        }
+        int expandListOn = min(5, MAX_ARRAY_SIZE-myArrayList.length);
+        Object[] newArrayList = new Object[myArrayList.length + expandListOn];
         for (int i=0; i<myArrayList.length; i++){
             newArrayList[i] = myArrayList[i];
         }
         return newArrayList;
     }
 
-    public void removeElement(int index){
+    private void removeElement(int index){
         for (int i=index; i<size; i++){
             myArrayList[i] = myArrayList[i+1];
         }
@@ -36,7 +44,7 @@ public class MyArrayList <E>{
     //видаляє елемент із вказаним індексом
     public E remove(int index){
         Objects.checkIndex(index, size);
-        E removeElement = myArrayList[index];
+        E removeElement = (E) myArrayList[index];
         removeElement(index);
         return removeElement;
     }
@@ -46,7 +54,6 @@ public class MyArrayList <E>{
         for (int i=0; i<size; i++){
             myArrayList[i] = null;
         }
-        myArrayList = (E[]) new Object[10];
         size = 0;
     }
 
@@ -58,7 +65,7 @@ public class MyArrayList <E>{
     //повертає елемент за індексом
     public E get(int index){
         Objects.checkIndex(index, size);
-        return myArrayList[index];
+        return (E) myArrayList[index];
     }
 
     @Override

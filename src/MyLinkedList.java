@@ -15,7 +15,7 @@ public class MyLinkedList<E>{
         size++;
     }
 
-    void linkLast(E e) {
+    private void linkLast(E e) {
         final Node<E> l = last;
         final Node<E> newNode = new Node<>(l, e, null);
         last = newNode;
@@ -46,7 +46,7 @@ public class MyLinkedList<E>{
         linkLast(value);
     }
 
-    Node<E> node(int index) {
+    private Node<E> node(int index) {
         if (index < (size >> 1)) {
             Node<E> x = first;
             for (int i = 0; i < index; i++)
@@ -60,7 +60,7 @@ public class MyLinkedList<E>{
         }
     }
 
-    E unlink(Node<E> x) {
+    private E unlink(Node<E> x) {
         final E element = x.item;
         final Node<E> next = x.next;
         final Node<E> prev = x.prev;
