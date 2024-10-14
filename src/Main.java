@@ -6,8 +6,28 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
+        HashMap <Integer, Integer> myHashMap = new HashMap<>();
+        myHashMap.put(1,10);
+        myHashMap.put(2,20);
+        myHashMap.put(3,30);
+        System.out.println("Added 1=10,2=20,3=30 "+myHashMap);
+        System.out.println("key 1 = "+myHashMap.get(1));
+        System.out.println("key 2 = "+myHashMap.get(2));
+        System.out.println("key 3 = "+myHashMap.get(3));
+        System.out.println("remove key 1 = "+myHashMap.remove(1) +" "+ myHashMap);
+        System.out.println("remove key 2 = "+myHashMap.remove(2) +" "+ myHashMap);
+        System.out.println("remove key 3 = "+myHashMap.remove(3) +" "+ myHashMap);
+        System.out.println("size = "+myHashMap.size());
+        myHashMap.put(4,40);
+        myHashMap.put(5,50);
+        myHashMap.put(6,60);
+        System.out.println(myHashMap);
+        myHashMap.clear();
+        System.out.println("Clear "+myHashMap);
+        System.out.println("*************************************************");
+
         Deque<Integer> listq = new ArrayDeque<>();
-        listq.remove();
+        //listq.remove();
         //Queue<Integer> listq = new ArrayDeque<>();
         listq.add(1);
         listq.add(3);
@@ -18,6 +38,7 @@ public class Main {
         System.out.println("size = "+listq.size());
         listq.clear();
         System.out.println("Clear "+listq);
+        System.out.println("*************************************************");
 
         ArrayList<Integer> list = new ArrayList<>();
         //LinkedList<Integer> list = new LinkedList<Integer>();

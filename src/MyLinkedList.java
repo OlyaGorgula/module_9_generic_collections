@@ -4,17 +4,6 @@ public class MyLinkedList<E>{
     private Node<E> first;
     private Node<E> last;
 
-    private void linkFirst(E e) {
-        final Node<E> f = first;
-        final Node<E> newNode = new Node<>(null, e, f);
-        first = newNode;
-        if (f == null)
-            last = newNode;
-        else
-            f.prev = newNode;
-        size++;
-    }
-
     private void linkLast(E e) {
         final Node<E> l = last;
         final Node<E> newNode = new Node<>(l, e, null);
