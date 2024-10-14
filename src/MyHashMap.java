@@ -1,4 +1,4 @@
-public class myHashMap<K, V> {
+public class MyHashMap<K, V> {
     private int sizeBuckets = 16;
     private int sizeMap = 0;
     private Node<K, V>[] tableBuckets = new Node[sizeBuckets];
@@ -134,7 +134,7 @@ public class myHashMap<K, V> {
     }
 
     public static void main(String[] args) {
-        myHashMap<Integer, Integer> myHashMap = new myHashMap<>();
+        MyHashMap<Integer, Integer> myHashMap = new MyHashMap<>();
         System.out.println("Add key = 1 value = 10");
         myHashMap.put(1,10);
         System.out.println("Add key = 1 value = 100");
